@@ -42,6 +42,9 @@ def forbidden(error) -> str:
 
 @app.before_request
 def before_request_fun():
+    """
+    Authenticate a user before every request"
+    """
     if auth:
         excluded = ['/api/v1/status/', '/api/v1/unauthorized/',
                     '/api/v1/forbidden/']
