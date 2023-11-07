@@ -6,8 +6,8 @@ from os import getenv
 from api.v1.views import app_views
 from flask import Flask, jsonify, abort, request
 from flask_cors import (CORS, cross_origin)
-from api.v1.auth.auth import Auth
 import os
+from api.v1.auth.auth import Auth
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
@@ -41,7 +41,7 @@ def forbidden(error) -> str:
 
 
 @app.before_request
-def before_request_fun() -> str:
+def before_request_fun():
     execluded = ['/api/v1/status/', '/api/v1/unauthorized/',
                  '/api/v1/forbidden/']
     if auth is not None and auth.require_auth(request.path, execluded):
