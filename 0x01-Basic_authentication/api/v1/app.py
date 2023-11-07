@@ -38,7 +38,7 @@ def forbidden(error) -> str:
 
 
 @app.before_request
-def before_request(error) -> str:
+def before_request_fun() -> str:
     execluded = ['/api/v1/status/', '/api/v1/unauthorized/',
                  '/api/v1/forbidden/']
     if auth is not None and auth.require_auth(request.path, execluded):
