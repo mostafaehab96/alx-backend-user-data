@@ -52,7 +52,7 @@ class DB:
             else:
                 raise NoResultFound
 
-    def update_user(self, user_id: str, **kwargs) -> None:
+    def update_user(self, user_id: int, **kwargs) -> None:
         """Update a user in the database"""
         user = self.find_user_by(id=user_id)
         for key, value in kwargs.items():
